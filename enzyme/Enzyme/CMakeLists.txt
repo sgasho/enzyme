@@ -146,7 +146,7 @@ if (${ENZYME_EXTERNAL_SHARED_LIB})
     add_dependencies(Enzyme-${LLVM_VERSION_MAJOR} BlasTAIncGen)
     add_dependencies(Enzyme-${LLVM_VERSION_MAJOR} BlasDiffUseIncGen)
 
-    if (APPLE)
+    if (APPLE AND ENZYME_APPLE_DYNAMIC_LOOKUP)
         target_link_options(Enzyme-${LLVM_VERSION_MAJOR} PRIVATE
             "-Wl,-flat_namespace"
             "-Wl,-undefined,dynamic_lookup")
